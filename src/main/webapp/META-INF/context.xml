@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Context>
+    <Resource
+        name="db/homework"
+        auth="Container"
+        type="javax.sql.DataSource"
+        driverClassName="com.mysql.jdbc.Driver"
+        url="jdbc:mysql://localhost:3306/hospital?rewriteBatchedStatements=true"
+        username="root"
+        password="424494431" maxTotal="100" maxIdle="20"
+        maxWaitMillis="10000"
+    />
+</Context>
