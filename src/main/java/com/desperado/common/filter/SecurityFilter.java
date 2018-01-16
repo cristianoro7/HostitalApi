@@ -7,6 +7,8 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
+import javax.servlet.annotation.WebInitParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -19,7 +21,7 @@ import desperado.common.security.SecurityProtector;
 /**
  * Created by desperado on 18-1-12.
  */
-//@WebFilter(urlPatterns = "/*", initParams = @WebInitParam(name = "login", value = "/login"))
+@WebFilter(urlPatterns = "/*", initParams = @WebInitParam(name = "login", value = "/login"))
 public class SecurityFilter implements javax.servlet.Filter {
 
     private String LOGIN;
