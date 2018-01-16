@@ -93,7 +93,7 @@
 * 职称表(user_title)
 
 | 列名 | 数据类型 | 说明 | 约束 |
-| :--------: | :-----:  | :----:  |
+| :--------: | :-----:  | :----:  | :----:  |
 | id | unsigned bigint | 职称ID | 主键, 自增 |
 | name | varchar(20) | 职称名字 | 非空 |
 | create | datetime | 创建时间 | 非空 |
@@ -103,7 +103,7 @@
 * 用户表(user)
 
 | 列名 | 数据类型 | 说明 | 约束 |
-| :--------: | :--------: | :----: |
+| :--------: | :--------: | :----: | :----:  |
 | user_id | unsigned bigint | 用户ID | 主键, 自增 |
 | user_name | char(20) | 用户名字 | 非空 |
 | sex | char(2) | 性别 | 男或者女 |
@@ -120,7 +120,7 @@
 * 门诊部表(department)
 
 | 列名 | 数据类型 | 说明 | 约束 |
-| :--------: | :--------: | :----: |
+| :--------: | :--------: | :----: | :----:  |
 | department_id | unsigned bigint | 门诊ID| 主键, 自增 |
 | department_name | varchar(20) | 门诊名字 | 非空 |
 | counts | unsigned smallint | 门诊人数 | 非空 |
@@ -130,7 +130,7 @@
 * 就诊室表(consulting_room)
 
 | 列名 | 数据类型 | 说明 | 约束 |
-| :--------: | :--------: | :----: |
+| :--------: | :--------: | :----: | :----:  |
 | consulting_room_id | unsigned bigint | 就诊室ID | 主键, 自增 |
 | location | char(20) | 地点 | 非空 |
 | create | datetime | 创建时间 | 非空 |
@@ -139,7 +139,7 @@
 * 药品(medicine)
 
 | 列名 | 数据类型 | 说明 | 约束 |
-| :--------: | :--------: | :----: |
+| :--------: | :--------: | :----: | :----:  |
 | medicine_id | unsigned bigint | 药品ID | 主键, 自增 |
 | medicine_name | varchar(35) | 药品名字 | 非空 |
 | price | decimal(7, 2) | 价格 | 非空 |
@@ -149,7 +149,7 @@
 * 药方(medicine_list)
 
 | 列名 | 数据类型 | 说明 | 约束 |
-| :--------: | :--------: | :----: |
+| :--------: | :--------: | :----: | :----:  |
 | medicine_id | unsigned bigint | 药品ID | 主键, 外键 |
 | case_report_id | unsigned_bigint | 病例ID | 主键, 外键 |
 | mount | unsigned_tinyint | 数量 | 非空 |
@@ -159,7 +159,7 @@
 * 病人信息(patient)
 
 | 列名 | 数据类型 | 说明 | 约束 |
-| :--------: | :--------: | :----: |
+| :--------: | :--------: | :----: | :----:  |
 | patient_id | unsigned bigint | 病人ID | 主键, 自增 |
 | patient_name | char(20) | 病人名字 | 非空 |
 | id_card | char(20) | 身份证 | 非空 |
@@ -172,7 +172,7 @@
 * 病例(case_report)
 
 | 列名 | 数据类型 | 说明 | 约束 |
-| :--------: | :--------: | :----: |
+| :--------: | :--------: | :----: | :----:  |
 | case_report_id | unsigned bigint | 病例ID | 主键, 自增 |
 | patient_id | unsigned bigint | 病人id | 主键, 外键 |
 | description | varchar(250) | 病情描述 | 非空 |
@@ -183,7 +183,7 @@
 * 挂号单(appointment)
 
 | 列名 | 数据类型 | 说明 | 约束 |
-| :--------: | :--------: | :----: |
+| :--------: | :--------: | :----: | :----:  |
 | appointment_id | unsigned bigint | 挂号单ID | 主键, 自增 |
 | patient_id | unsigned bigint | 病人id | 主键, 外键 |
 | consulting_date | datetime | 就诊时间 | 非空 |
@@ -197,7 +197,7 @@
 * 收费单
 
 | 列名 | 数据类型 | 说明 | 约束 |
-| :--------: | :--------: | :----: |
+| :--------: | :--------: | :----: | :----:  |
 | pay_list_id | unsigned bigint | 挂号单ID | 主键, 自增 |
 | case_report_id | unsigned_bigint | 药品清单ID | 外键 |
 | total_price | decimal(7, 2) | 总价 | 非空 |
@@ -229,7 +229,7 @@
 * 管理员
 
 | URL | 方法 | 参数 | 说明 | 实例 |
-| :--------: | :--------: | :----: | :----: |
+| :--------: | :--------: | :----: | :----: | :----:  |
 | /admin/users | GET | 无 | 查看所有用户 | 1 |
 | /admin/user | GET | titleId(职称ID) | 查看特定职称的用户 | 2 |
 | /admin/user/add | POST | name, sex, tel(电话), age(age > 18 && age < 150), account(账号), password, departmentId(部门ID), consultingRoomId(就诊室ID) | 添加用户 | 3 |
@@ -1010,8 +1010,8 @@
 
 * 挂号
 
-| URL | 方法 | 参数 | 说明 | 实例 |
-| :--------: | :--------: | :----: | :----: |
+| URL | 方法 | 参数 | 说明 | 实例 | 
+| :--------: | :--------: | :----: | :----: | :----:  |
 | /appointments | GET | 无 | 查看所有挂号 | 26 |
 | /appointment | GET | doctorId | 查看医生的所有挂号 | 27 |
 | /appointment/add | POST | name, idCard, sex, age, tel, consultingDate, doctorId, departmentId, consultingRoomId | 添加挂号 | 28 |
@@ -1174,7 +1174,7 @@
 * 开病例模块
 
 | URL | 方法 | 参数 | 说明 | 实例 |
-| :--------: | :--------: | :----: | :----: |
+| :--------: | :--------: | :----: | :----: | :----:  |
 | /casereport/add | | POST | appointmentId, patientId, description, medicineId, counts (medicineId和counts都是一个拼接的字段. 拼接格式: medicineId: id1&id2, counts: 1&2) | 添加病例 | 31 |
 | /casereport/update | POST | id, isPay(0表示未付款, 1表示已付款) | 修改病例, 只修改是否付款的字段 | 32 |
 
@@ -1225,7 +1225,7 @@
 * 查看药品清单
 
 | URL | 方法 | 参数 | 说明 | 实例 |
-| :--------: | :--------: | :----: | :----: |
+| :--------: | :--------: | :----: | :----: | :----:  |
 |/medicine/pick | GET | reportId | 查看病例对应的药品清单 | 33 |
 
 > 实例33
@@ -1264,7 +1264,7 @@
 * 付款模块
 
 | URL | 方法 | 参数 | 说明 | 实例 |
-| :--------: | :--------: | :----: | :----: |
+| :--------: | :--------: | :----: | :----: | :----:  |
 | /medicine/unpay | GET | 无 | 查看未付款的药单 | 34 |
 | /medicine/pay | POST | reportId | 付款 | 35 |
 
@@ -1345,7 +1345,7 @@
 * 登录模块
 
 | URL | 方法 | 参数 | 说明 | 实例 |
-| :--------: | :--------: | :----: | :----: |
+| :--------: | :--------: | :----: | :----: | :----:  |
 | /login | POST | account, password | 登录 | 36 |
 
 > 实例36
@@ -1373,7 +1373,7 @@
 * 注销模块
 
 | URL | 方法 | 参数 | 说明 | 实例 |
-| :--------: | :--------: | :----: | :----: |
+| :--------: | :--------: | :----: | :----: | :----:  |
 | /logout | GET | 无 | 注销 | 37 |
 
 > 实例37
