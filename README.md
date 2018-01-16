@@ -1175,7 +1175,7 @@
 
 | URL | 方法 | 参数 | 说明 | 实例 |
 | :--------: | :--------: | :----: | :----: | :----:  |
-| /casereport/add | | POST | appointmentId, patientId, description, medicineId, counts (medicineId和counts都是一个拼接的字段. 拼接格式: medicineId: id1&id2, counts: 1&2) | 添加病例 | 31 |
+| /casereport/add | POST | appointmentId, patientId, description, medicineId, counts (medicineId和counts都是一个拼接的字段. 拼接格式: medicineId: id1&id2, counts: 1&2) | 添加病例 | 31 |
 | /casereport/update | POST | id, isPay(0表示未付款, 1表示已付款) | 修改病例, 只修改是否付款的字段 | 32 |
 
 > 实例31
