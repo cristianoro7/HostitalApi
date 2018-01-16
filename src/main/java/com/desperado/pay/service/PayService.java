@@ -28,7 +28,8 @@ public class PayService implements Service {
         payResult.getList().setReportId(String.valueOf(reportId));
         payResult.setTotalPrice(payDao.getPay(list));
         int c = payDao.finishPay(reportId);
-        if (c > 0) {
+        int r = payDao.addPay(reportId);
+        if (c > 0 && r > 0) {
             setSuccess(payResult);
         }
         return payResult;

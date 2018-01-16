@@ -23,6 +23,9 @@ public class PayDaoImpl extends AbstractDao implements PayDao {
             "FROM case_report, patient " +
             "WHERE is_pay = 0 AND patient.patient_id = case_report.patient_id";
 
+    private static final String SQL_ADD_PAY = "INSERT INTO pay_list(case_report_id, total_price, create_time) " +
+            "VALUES(?, ?, ?)";
+
     @Override
     public String getPay(List<CaseReportResult.MedicineList> list) {
         double totalPrice = -1;
@@ -48,8 +51,13 @@ public class PayDaoImpl extends AbstractDao implements PayDao {
             unPay.getMedicine().setPatientName(resultSet.getString(3));
             unPays.add(unPay);
             System.out.println("rId: " + unPay.getMedicine().getReportId() + ", pId: " +
-            unPay.getMedicine().getPatientId() + ", pName: " + unPay.getMedicine().getPatientName());
+                    unPay.getMedicine().getPatientId() + ", pName: " + unPay.getMedicine().getPatientName());
         });
         return unPays;
+    }
+
+    @Override
+    public int addPay(int reportId) {
+        return update(SQL_ADD_PAY, new Object[]{reportId});
     }
 }

@@ -17,4 +17,6 @@ public interface PayDao {
 
     List<UnPayResult.UnPay> getUnPay();
 
+    int addPay(int reportId);
+
 }
